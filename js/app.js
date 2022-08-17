@@ -2,13 +2,14 @@
 // Referencias de jQuery
 
 
-let url = window.location.href;
-let swLocation = '/pwa-offline-short/sw.js';
+var url = window.location.href;
+var swLocation = '/pwa-offline-short/sw.js';
 
 if (navigator.serviceWorker) {
-    if (url.includes('localhost')) {
+    if (url.includes('127.0.0.1')) {
         swLocation = '/sw.js';
     }
+    console.log(swLocation);
     navigator.serviceWorker.register(swLocation);
 }
 
