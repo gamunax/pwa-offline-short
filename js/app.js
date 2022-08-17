@@ -2,8 +2,14 @@
 // Referencias de jQuery
 
 
+let url = window.location.href;
+let swLocation = '/pwa-offline-short/sw.js';
+
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('../sw.js');
+    if (url.includes('localhost')) {
+        swLocation = '/sw.js';
+    }
+    navigator.serviceWorker.register(swLocation);
 }
 
 var titulo      = $('#titulo');
